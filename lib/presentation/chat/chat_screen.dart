@@ -1,0 +1,22 @@
+import 'package:flutter/material.dart';
+
+
+class ChatScreen extends StatelessWidget {
+  const ChatScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        leading: Padding(
+          padding: const EdgeInsets.all(4.0),
+          child: CircleAvatar(
+            backgroundImage: NetworkImage("https://imgs.search.brave.com/U9Bjwk_cSVeZ1V_9qqTHnu7gyA9DiHGCYZ38sbbEHxQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuaGVsbG9tYWdh/emluZS5jb20vaG9y/aXpvbi9zcXVhcmUv/ZWI5ZTk4NjMxYjkw/LWdldHR5aW1hZ2Vz/LTIxNTAyNTcxMTMu/anBn"),
+          ),
+        ),
+        title: Text("Mi amor <3"),
+        centerTitle: false,
+      ),
+    );
+  }
+}

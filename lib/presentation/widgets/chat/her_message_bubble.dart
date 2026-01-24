@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 
 
 class HerMessageBubble extends StatelessWidget {
-  const HerMessageBubble({super.key});
-
+  final dynamic message;
+  const HerMessageBubble({
+    super.key,
+    required  this.message
+    });
   @override
   Widget build(BuildContext context) {
 
@@ -20,12 +23,12 @@ class HerMessageBubble extends StatelessWidget {
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-            child: Text("Hola Mundo", style: TextStyle( color: Colors.white)),
+            child: Text(message.text, style: TextStyle( color: Colors.white)),
           ),
         ),
       const SizedBox(height: 5,),
 
-      _ImageBubble(),
+      _ImageBubble(message: message),
 
       const SizedBox(height: 10,),
 
@@ -37,7 +40,10 @@ class HerMessageBubble extends StatelessWidget {
 }
 
 class _ImageBubble extends StatelessWidget {
-
+  final dynamic message;
+  const _ImageBubble({
+    required this.message
+  });
   @override
   Widget build(BuildContext context) {
     
@@ -47,7 +53,7 @@ class _ImageBubble extends StatelessWidget {
       borderRadius: BorderRadius.circular(20),
         child: 
           Image.network(
-            "https://yesno.wtf/assets/yes/4-c53643ecec77153eefb461e053fb4947.gif",
+            message.imageUrl,
             width: size.width * 0.7,
             height: 150,
             fit: BoxFit.cover,
@@ -58,7 +64,7 @@ class _ImageBubble extends StatelessWidget {
                 width: size.width * 0.7,
                 height: 150,
                 padding: const EdgeInsets.symmetric( horizontal: 10, vertical: 5),
-                child: Text("Mi amor está enviando una imagen"),
+                child: Text("Camilo Gomez esta enviando una imagen..."),
               );
             } ,
             )

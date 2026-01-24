@@ -17,10 +17,10 @@ class ChatScreen extends StatelessWidget {
         leading: Padding(
           padding: const EdgeInsets.all(4.0),
           child: CircleAvatar(
-            backgroundImage: NetworkImage("https://imgs.search.brave.com/U9Bjwk_cSVeZ1V_9qqTHnu7gyA9DiHGCYZ38sbbEHxQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuaGVsbG9tYWdh/emluZS5jb20vaG9y/aXpvbi9zcXVhcmUv/ZWI5ZTk4NjMxYjkw/LWdldHR5aW1hZ2Vz/LTIxNTAyNTcxMTMu/anBn"),
+            backgroundImage: NetworkImage("https://gravatar.com/userimage/185121105/c03853c362b59e77040a345d213438df.jpeg?size=256"),
           ),
         ),
-        title: Text("Mi amor <3"),
+        title: Text("Camilo Gomez"),
         centerTitle: false,
       ),
       body: _ChatView(),
@@ -42,6 +42,7 @@ class _ChatView extends StatelessWidget {
           children: [
             Expanded(
               child: ListView.builder( 
+                controller: chatProvider.chatScrollController,
                 itemCount: chatProvider.messageList.length, 
                 itemBuilder: (context, index) {
                   final message = chatProvider.messageList[index];
@@ -51,7 +52,10 @@ class _ChatView extends StatelessWidget {
               },)
             ),
           // Caja de texto de mensajes
-          MessageFieldBox(),
+          MessageFieldBox(
+            // onValue: (value) => chatProvider.sendMessage(value),
+            onValue: chatProvider.sendMessage
+          ),
 
           ],
         ),

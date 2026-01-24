@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:yes_no_app/domain/entities/message.dart';
 
 
 class HerMessageBubble extends StatelessWidget {
-  final dynamic message;
+  final Message message;
   const HerMessageBubble({
     super.key,
     required  this.message
-    });
+  });
   @override
   Widget build(BuildContext context) {
 
@@ -28,7 +29,7 @@ class HerMessageBubble extends StatelessWidget {
         ),
       const SizedBox(height: 5,),
 
-      _ImageBubble(message: message),
+      _ImageBubble( message.imageUrl! ),
 
       const SizedBox(height: 10,),
 
@@ -40,10 +41,8 @@ class HerMessageBubble extends StatelessWidget {
 }
 
 class _ImageBubble extends StatelessWidget {
-  final dynamic message;
-  const _ImageBubble({
-    required this.message
-  });
+  final String imageUrl;
+  const _ImageBubble(this.imageUrl);
   @override
   Widget build(BuildContext context) {
     
@@ -53,7 +52,7 @@ class _ImageBubble extends StatelessWidget {
       borderRadius: BorderRadius.circular(20),
         child: 
           Image.network(
-            message.imageUrl,
+            imageUrl,
             width: size.width * 0.7,
             height: 150,
             fit: BoxFit.cover,
